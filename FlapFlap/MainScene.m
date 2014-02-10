@@ -27,7 +27,7 @@ static const CGFloat kPipeFrequency = 2;
 static const NSInteger kNumLevels = 20;
 
 static const CGFloat randomFloat(CGFloat Min, CGFloat Max){
-  return floor(((rand() % RAND_MAX) / (RAND_MAX * 1.0)) * (Max - Min) + Min);
+  return floor(((random() % RAND_MAX) / (RAND_MAX * 1.0)) * (Max - Min) + Min);
 }
 
 @implementation MainScene {
@@ -44,7 +44,7 @@ static const CGFloat randomFloat(CGFloat Min, CGFloat Max){
   if (self = [super initWithSize:size]) {
     _score = 0;
 
-    srand((time(nil) % kNumLevels)*10000);
+    srandom((time(nil) % kNumLevels));
 
     [self setBackgroundColor:[SKColor colorWithRed:.45 green:.77 blue:.81 alpha:1]];
 
